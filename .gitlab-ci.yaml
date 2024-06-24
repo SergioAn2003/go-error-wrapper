@@ -1,0 +1,28 @@
+image: golang:1.22
+
+stages:
+  - lint
+  - test
+
+workflow:
+  rules:
+    - if: $CI_PIPELINE_SOURCE == "merge_request_event" && $CI_MERGE_REQUEST_TARGET_BRANCH_NAME == "main"
+
+lint-job:
+  stage: lint
+  script:
+    - echo "Installing golangci-lint..."
+    - go install github.com/golangci/golangci-lint/cmd/golangci-lint@latest
+    - echo "Linting code with golangci-lint..."
+    - export PATH="$PATH:$(pwd)/go/bin"
+    - golangci-lint run -c .golangci.yaml --path-prefix .
+    - echo "No lint issues found."
+
+test-job:
+  stage: test
+  script:
+    - export GOINSECURE="gitlab.app.cube"
+    - export GOPRIVATE="gitlab.app.cube"
+    - echo "Running unit tests..."
+    - go test ./... --race
+    - echo "Unit tests completed."
