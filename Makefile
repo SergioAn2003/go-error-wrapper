@@ -9,13 +9,6 @@ lint:
 
 
 
-# Show godoc in browser
-doc:
-	@echo documentation is available at http://localhost:6060/pkg/gitlab.app.cube/medcore/go-utils/error-wrapper
-	@$(CURDIR)/temp/bin/godoc -http=localhost:6060
-
-
-
 # Test
 test:
 	@go test --cover --coverprofile=$(CURDIR)/temp/coverage.out $(TEST_COVER_EXCLUDE_DIR) --race
@@ -33,7 +26,7 @@ install-deps:
 	@GOBIN=$(CURDIR)/temp/bin go install github.com/golangci/golangci-lint/cmd/golangci-lint@latest
 	@GOBIN=$(CURDIR)/temp/bin go install github.com/nikolaydubina/go-cover-treemap@latest
 	@GOBIN=$(CURDIR)/temp/bin go install golang.org/x/tools/cmd/godoc@latest
-	@GOINSECURE="gitlab.app.cube" GOPRIVATE="gitlab.app.cube" go mod tidy
+	@go mod tidy
 
 
 

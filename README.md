@@ -18,7 +18,7 @@ import (
 	"errors"
 	"fmt"
 
-	"gitlab.app.cube/medcore/go-utils/error-wrapper"
+	"github.com/SergioAn2003/go-error-wrapper"
 )
 
 func someFn() (err error) {

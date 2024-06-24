@@ -21,8 +21,6 @@ lint-job:
 test-job:
   stage: test
   script:
-    - export GOINSECURE="gitlab.app.cube"
-    - export GOPRIVATE="gitlab.app.cube"
     - echo "Running unit tests..."
     - go test ./... --race
     - echo "Unit tests completed."

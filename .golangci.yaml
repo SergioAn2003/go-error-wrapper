@@ -23,8 +23,6 @@ linters-settings:
     rewrite-rules:
       - pattern: 'interface{}'
         replacement: 'any'
-  goimports:
-    local-prefixes: gitlab.app.cube/medcore/
   mnd:
     checks:
       - argument

@@ -14,7 +14,7 @@ import (
 //	   "errors"
 //	   "fmt"
 //
-//	   errorWrapper "gitlab.app.cube/medcore/go-utils/error-wrapper"
+//	   errorWrapper "github.com/SergioAn2003/go-error-wrapper"
 //	 )
 //
 //	 func someFn() (err error) {
@@ -42,7 +42,7 @@ func PtrWithOP(err *error, op string) { //nolint:gocritic
 //		"errors"
 //		"fmt"
 //
-//		errorWrapper "gitlab.app.cube/medcore/go-utils/error-wrapper"
+//		errorWrapper "github.com/SergioAn2003/go-error-wrapper"
 //	)
 //
 //	func main() {
